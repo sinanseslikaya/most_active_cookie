@@ -13,4 +13,8 @@ public class MostActiveCookie {
         System.out.println(filename+"\n"+date);
 
     }
+
+    public static void input(String filename, String date) {
+
+    }
 }
