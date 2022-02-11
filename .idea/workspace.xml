@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="afacd49c-b92d-427b-8d6e-4b09f60308ba" name="Changes" comment="p2">
-      <change afterPath="$PROJECT_DIR$/cookie_log.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="afacd49c-b92d-427b-8d6e-4b09f60308ba" name="Changes" comment="works for args with 1 clear max" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644606923769</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="works for args with 1 clear max">
+      <created>1644610723135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644610723135</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -92,6 +95,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="accepts command line arguments" />
     <MESSAGE value="p2" />
-    <option name="LAST_COMMIT_MESSAGE" value="p2" />
+    <MESSAGE value="works for args with 1 clear max" />
+    <option name="LAST_COMMIT_MESSAGE" value="works for args with 1 clear max" />
   </component>
 </project>
