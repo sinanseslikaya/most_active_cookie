@@ -3,53 +3,57 @@ import csv
 import datetime
 
 
-def dateCheck():
-    year = int(sys.argv[3][0:4])
-    month = int(sys.argv[3][5:7])
-    day = int(sys.argv[3][8:10])
-
-    correctDate = None
+def get_date():
+    """
+    This function ensures the date command line argument provided is valid
+    :return: the date
+    """
     try:
-        newDate = datetime.datetime(year, month, day)
-        correctDate = True
-        print(newDate)
+        cookie_date = datetime.datetime(int(sys.argv[3][0:4]), int(sys.argv[3][5:7]), int(sys.argv[3][8:10]))
+        cookie_date = cookie_date.strftime('%Y-%m-%d')  # formats into desired string form
     except ValueError:
-        correctDate = False
-        print("Invalid date")
+        print("Error: invalid date argument")
         exit(1)
-    return correctDate
+    return cookie_date
 
 
-def run():
-
-    if len(sys.argv[1]) > 1 and dateCheck() == True:
-        # filepath = sys.argv[1]
-        try:
-            with open(sys.argv[1]) as file:
-                csvFile = csv.reader(file)
-                cookies = {}
-
-                for lines in csvFile:
-                    if lines[1][0:10] == sys.argv[3]:  # checks if correct date
-                        if str(lines[0]) not in cookies:
-                            cookies[str(lines[0])] = 1
-                        else:
-                            cookies[str(lines[0])] += 1
-                max_occurrences = max(cookies.values())
-
-                for key in cookies.items():
-                    # print(key)
-                    if key[1] == max_occurrences:
-                        print(key[0])
-
-
-        except FileNotFoundError:
-            print("File not found")
-            exit(1)
-    else:
-        print('You need file path')
+def args_provided():
+    """
+    ensures both filename and date args are provided in command line
+    """
+    try:
+        x = len(sys.argv[1]) > 1
+        y = len(sys.argv[3]) > 1
+    except IndexError:
+        print("Error: insufficient arguments")
         exit(1)
 
 
-# TODO CHECK runtime conditinos
-run()
+def main():
+    args_provided()
+    date = get_date()
+    try:
+        with open(sys.argv[1]) as file:
+            csv_file = csv.reader(file)
+            cookies = {}
+            for lines in csv_file:
+                if lines[1][0:10] == date:  # checks if correct date
+                    if str(lines[0]) not in cookies:
+                        cookies[str(lines[0])] = 1
+                    else:
+                        cookies[str(lines[0])] += 1
+            max_occurrences = max(cookies.values())
+
+            for key in cookies.items():
+                if key[1] == max_occurrences:
+                    print(key[0])
+
+    except ValueError:
+        # error arises from max() having an empty arg -> no cookies on the provided date
+        print("Error: no cookies timestamped for given date")
+        exit(1)
+    except FileNotFoundError:
+        print("Error: file not found")
+        exit(1)
+
+main()
