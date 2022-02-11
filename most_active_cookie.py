@@ -8,7 +8,7 @@ def main():
         if sys.argv[2] == "-d":
             run_with_date()
         else:
-            print("Error: command", sys.argv[2], "not defined")
+            print("Error: parameter", sys.argv[2], "not defined")
             exit(1)
     except IndexError:
         run()
@@ -52,7 +52,6 @@ def run():
     """
     finds most active cookie in entire csv
     """
-
     args_provided(False)
     try:
         with open(sys.argv[1]) as file:
