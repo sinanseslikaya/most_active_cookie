@@ -2,12 +2,14 @@
 
 A command line program written in **Python3** to process log files with cookies and timestamps to return the most active cookie.
 
+An example csv file is provided.
+
 ### Directions:
 To run the script, you must first have a recent version of Python3 installed. 
 
 `python3 most_active_cookie.py filename.csv`
 
-To run with the date option, which returns the most active cookie on a specific day use
+To run with the date option, which returns the most active cookie on a specific day use:
 
 `python3 most_active_cookie.py filename.csv -d yyyy-mm-dd`
 
