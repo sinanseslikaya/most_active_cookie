@@ -8,6 +8,7 @@ def main():
         if sys.argv[2] == "-d":
             run_with_date()
         else:
+            # could be changed in the future to accept different arguments
             print("Error: parameter", sys.argv[2], "not defined")
             exit(1)
     except IndexError:
@@ -21,6 +22,7 @@ def get_date():
     """
     try:
         cookie_date = datetime.datetime(int(sys.argv[3][0:4]), int(sys.argv[3][5:7]), int(sys.argv[3][8:10]))
+        # create datetime object to ensure the validity of the date argument i.e. not a valid date -> ValueError
         cookie_date = cookie_date.strftime('%Y-%m-%d')  # formats into desired string form
     except ValueError:
         print("Error: invalid date argument")
@@ -80,7 +82,6 @@ def run_with_date():
     """
     finds most active cookie on provided date
     """
-
     args_provided(True)
     date = get_date()
     try:
